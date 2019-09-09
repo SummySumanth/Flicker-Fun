@@ -8,6 +8,11 @@ module.exports = {
     path: __dirname + '/build',
     filename: 'bundle.js'
   },
+  // optimization: {
+  //   splitChunks: {
+  //     chunks: 'all',
+  //   },
+  // },
   devServer: {
     historyApiFallback: true,
     contentBase: './',
@@ -47,9 +52,15 @@ module.exports = {
     ]
   },
   plugins: [
-    new HtmlWebpackPlugin({template: "./src/index.html"}),
-    new webpack.optimize.LimitChunkCountPlugin({
-      maxChunks: 1,
+    new HtmlWebpackPlugin({
+      title:"Summy's Boilerplate",
+      hash: true,
+      inject: false,
+      template: 'template.ejs',
+      baseUrl: '/'
     }),
+    // new webpack.optimize.LimitChunkCountPlugin({
+    //   maxChunks: 1,
+    // }),
   ]
 };
