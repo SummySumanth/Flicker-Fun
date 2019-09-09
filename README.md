@@ -7,6 +7,14 @@ An simple version of the Flickr website using the Flickr API.
 
 ## NPM Scripts
 
+#### To install the required npm packages ( Required only once )
+     npm i
+     
+or
+
+     yarn
+    
+
 #### To Run
      npm run start 
 

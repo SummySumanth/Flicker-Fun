@@ -104,8 +104,8 @@ class WelcomeScreen extends Component{
       <div className={'WelcomeScreen'}>
         <div className={'ModalContainer'}>
             <div className={'ContentHolder'}>
-                <h1 style={{marginBottom: '10px'}}>Welcome to BreadCrumb Navigation Project !</h1>
-                <p className={'ModalSubHeader'}>This project is to demonstrate react navigation in breadcrumbs style with a <strong>BreadCrumb Navigation Bar !</strong></p>
+                <h1 style={{marginBottom: '10px'}}>Welcome to Flicker Fun Project !</h1>
+                <p className={'ModalSubHeader'}>This project is to demonstrate the use of Flicker Api and show the result in masonry layout style and to implement lazy loading, frontend routing, code splitting and so on for better optimisation of performance without compromising the user experience!</strong></p>
                 <div className={'divider'} />
 
                 <div className={'ModalBody'}>
@@ -129,7 +129,9 @@ class WelcomeScreen extends Component{
                     <div className={'TechBlock-container'} style={{ justifyContent: 'flex-start', padding: '10px 30px', textAlign: 'left'}}>
                       <ul>
                         <li style={{padding: '6px 0px'}}>This project was built from scratch, using personally built boilerplate. No create-react-app used !</li>
-                        <li>No css frameworks used, all the styles and animations are handwritten !</li>
+                        <li style={{padding: '6px 0px'}}>Lazing loading of images for performance optimisation and cost reduction !</li>
+                        <li style={{padding: '6px 0px'}}>Code splitting in order to make the static script files light weight and load only on need!</li>
+                        <li style={{padding: '6px 0px'}}>No css frameworks used, all the styles and animations are handwritten !</li>
                       </ul>
                     </div>
                   </div>
