@@ -1,5 +1,5 @@
 {
-  "name": "Flicker Fun",
+  "name": "flicker-fun",
   "version": "1.0.0",
   "description": "An simple version of the Flickr website using the Flickr API.",
   "main": "index.js",

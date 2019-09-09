@@ -64,14 +64,9 @@ class WelcomeScreen extends Component{
   getProjectLinks = () => {
     const Links = [
       {
-        name: 'View in Production',
-        image: running,
-        url: 'http://breadcrumb-navigation.surge.sh/'
-      },
-      {
-        name: 'Github/BreadcrumbNavigation',
+        name: 'Github/FlickerFun',
         image: github,
-        url: 'https://github.com/SummySumanth/breadcrumb-Navigation'
+        url: 'https://github.com/SummySumanth/Flicker-Fun'
       },
       {
         name: 'View Resume',
@@ -83,7 +78,6 @@ class WelcomeScreen extends Component{
         image: linkedin,
         url: 'https://www.linkedin.com/in/sumanthba/'
       },
-
     ];
 
     return Links.map(item =>{
@@ -105,7 +99,7 @@ class WelcomeScreen extends Component{
         <div className={'ModalContainer'}>
             <div className={'ContentHolder'}>
                 <h1 style={{marginBottom: '10px'}}>Welcome to Flicker Fun Project !</h1>
-                <p className={'ModalSubHeader'}>This project is to demonstrate the use of Flicker Api and show the result in masonry layout style and to implement lazy loading, frontend routing, code splitting and so on for better optimisation of performance without compromising the user experience!</strong></p>
+                <p className={'ModalSubHeader'}>This project is to demonstrate the use of Flicker Api and show the result in masonry layout style and to implement lazy loading, frontend routing, code splitting and so on for better optimisation of performance without compromising the user experience!</p>
                 <div className={'divider'} />
 
                 <div className={'ModalBody'}>

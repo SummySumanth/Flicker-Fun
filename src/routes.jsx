@@ -2,7 +2,7 @@ import React,{ Component } from 'react';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useRouterHistory } from 'react-router';
 import history from './routes/history';
-import WelcomeScreen from './routes/WelcomeScreen';
+import WelcomeScreen from './routes/WelcomeScreen.jsx';
 import Loadable from 'react-loadable';
 
  import './styles/index.scss';
@@ -35,7 +35,6 @@ class Routes extends Component{
     return(
       <Router history={history} >
         { this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }
-        <BreadCrumbNav/>
         <Switch>
           <Route exact path='/' render={() => (    <Redirect to="/home" />      )}/>
           <Route exact path='/home' component={LandingPage}/>

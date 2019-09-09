@@ -6,7 +6,7 @@ import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
 
 import allReducers from './reducers/index';
-import Routes from './routes';
+import Routes from './routes.jsx';
 
 const loggerMiddleware = createLogger({ predicate: () => ({ logger: console, diff: true }) });
 

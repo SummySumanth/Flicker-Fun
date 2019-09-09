@@ -2,9 +2,7 @@ import React,{ Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
-import breadCrumbActions from '../../actions/breadCrumb/breadCrumbActions'
-
-import LandingPage from '../../components/landingPage/landingPage';
+import LandingPage from '../../components/landingPage/landingPage.jsx';
 class LandingPageContainer extends Component{
 
   navigationHandler = (direction) =>{
@@ -12,9 +10,7 @@ class LandingPageContainer extends Component{
   };
 
   componentDidMount(){
-    const navParts = window.location.pathname.split("/");
-    navParts.shift();
-    this.props.updateBreadCrumb(navParts);
+
   }
 
   render(){
@@ -33,7 +29,6 @@ const mapStateToProps = state =>({
 });
 
 const mapDispatchToProps = dispatch => ({
-  updateBreadCrumb : payload => dispatch(breadCrumbActions.update(payload)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(LandingPageContainer);
