@@ -125,6 +125,7 @@ class WelcomeScreen extends Component{
                         <li style={{padding: '6px 0px'}}>This project was built from scratch, using personally built boilerplate. No create-react-app used !</li>
                         <li style={{padding: '6px 0px'}}>Lazing loading of images for performance optimisation and cost reduction !</li>
                         <li style={{padding: '6px 0px'}}>Code splitting in order to make the static script files light weight and load only on need!</li>
+                        <li style={{padding: '6px 0px'}}>Search suggestion network calls are throttled!</li>
                         <li style={{padding: '6px 0px'}}>No css frameworks used, all the styles and animations are handwritten !</li>
                       </ul>
                     </div>

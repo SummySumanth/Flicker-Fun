@@ -1,3 +1,5 @@
+@import "./variables";
+
 * {
   margin: 0;
   padding: 0;
@@ -7,10 +9,11 @@ html,
 body {
   height: 100%;
   width: 100%;
-  background: #ecececbd;
+  background: $color_white2;
   margin: 0px;
   padding: 0px;
-  box-shadow: inset 0px 1px 210px -82px rgba(0,0,0,0.33);
+  //box-shadow: inset 0px 1px 210px -82px rgba(0,0,0,0.33);
+  -webkit-font-smoothing: antialiased;
   font-family: 'Rubik', sans-serif;
 }
 #root{

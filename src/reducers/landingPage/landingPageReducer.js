@@ -1,11 +1,11 @@
-// import SignupPageActionTypes from "../../actions/signupPage/signupPageActionTypes";
+import searchBarActionTypes from "../../actions/searchBar/searchBarActionTypes";
 
 const intialState = {
+
 }
 
 const landingPageReducer = (state = intialState, action) => {
   switch(action.type){
-
     default: return state;
   };
 }

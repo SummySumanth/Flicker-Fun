@@ -1,9 +1,9 @@
 import { combineReducers } from 'redux';
 
-import landingPageReducer from './landingPage/landingPageReducer';
+import searchBarReducer from './searchBar/searchBarReducer';
 
 const allReducers = combineReducers({
-  landingPage : landingPageReducer,
+  searchBar : searchBarReducer,
 });
 
 export default allReducers;

@@ -1,0 +1,63 @@
+@import '../variables';
+
+.FF_searchbar-wrapper{
+  flex-grow: 0.5;
+  height: 50px;
+  border-radius: 100px;
+  box-shadow: inset 0 0 17px -8px;
+  background: #f9f9f9;
+  cursor: pointer;
+}
+
+.FF_searchbar-container{
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0px 15px;
+}
+
+.FF_searchbar-icon-container{
+  padding: 0 15px 0px 5px;
+  transition: $transition_mid;
+  backface-visibility: hidden;
+}
+
+.FF_searchbar-icon{
+  height: 18px;
+}
+
+
+.FF_searchbar-container:focus-within .FF_searchbar-icon-container{
+  transform: scale(1.35);
+  //transform: ;
+}
+
+
+.FF_searchbar-input{
+  height: 90%;
+  background: #0000;
+  border: none;
+  width: 100%;
+  font-size: 14pt;
+}
+
+.FF_searchbar-input:focus{
+  outline: none !important;
+  border: none;
+}
+
+.FF_searchbar-suggestions-wrapper{
+  height: 100%;
+  position: absolute;
+  width: 53%;
+  padding-left: 25px;
+  bottom: -55px;
+}
+
+.FF_searchbar-suggestions-container{
+  background: $color_white;
+  height: 100%;
+  width: 100%;
+  box-shadow: $shadow_L2;
+}

@@ -3,11 +3,10 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import '../../styles/landingPage/landingPage.scss';
 
-class LandingPage extends Component{
-
+class GroupsPage extends Component{
 
   static propTypes = {
-    onNavChange: PropTypes.func.isRequired,
+
   }
 
   onClickHandler (direction) {
@@ -23,4 +22,4 @@ class LandingPage extends Component{
   }
 }
 
-export default withRouter(LandingPage);
+export default withRouter(GroupsPage);

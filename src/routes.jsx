@@ -1,17 +1,23 @@
 import React,{ Component } from 'react';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useRouterHistory } from 'react-router';
-import history from './routes/history';
-import WelcomeScreen from './routes/WelcomeScreen.jsx';
 import Loadable from 'react-loadable';
 
- import './styles/index.scss';
+import services from './services/flicker';
+
+import TopBar from './components/topBar/topBar.jsx';
+import SearchBar from './components/searchBar/searchBar.jsx';
+
+import history from './routes/history';
+import WelcomeScreen from './routes/WelcomeScreen.jsx';
+
+import './styles/index.scss';
 
 function MyLoadingComponent() {
   return <div>Loading...</div>;
 }
 
-const LandingPage = Loadable({
+const GroupsPage = Loadable({
   loader: () => import('./routes/landingPage/LandingPageContainer.jsx'),
   loading: MyLoadingComponent,
 });
@@ -32,13 +38,23 @@ class Routes extends Component{
   };
 
   render(){
+    services.searchForGroups('Hello World')
+      .then(response =>{
+        console.log('Response received is :', response);
+      });
     return(
       <Router history={history} >
-        { this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }
+        {/*{ this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }*/}
+
+        <TopBar>
+           <div></div>
+           <SearchBar/>
+           <div>Show Stats</div>
+        </TopBar>
         <Switch>
-          <Route exact path='/' render={() => (    <Redirect to="/home" />      )}/>
-          <Route exact path='/home' component={LandingPage}/>
-          <Route exact path='/*' render={() => (    <Redirect to="/home" />      )}/>
+          <Route exact path='/' render={() => (    <Redirect to="/groups" />      )}/>
+          <Route exact path='/groups' component={GroupsPage}/>
+          <Route exact path='/*' render={() => (    <Redirect to="/groups" />      )}/>
         </Switch>
       </Router>
     )
