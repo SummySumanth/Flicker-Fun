@@ -38,10 +38,6 @@ class Routes extends Component{
   };
 
   render(){
-    services.searchForGroups('Hello World')
-      .then(response =>{
-        console.log('Response received is :', response);
-      });
     return(
       <Router history={history} >
         {/*{ this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }*/}

@@ -12,7 +12,7 @@ const loggerMiddleware = createLogger({ predicate: () => ({ logger: console, dif
 
 const store = createStore(
   allReducers,
-  applyMiddleware(thunk ,loggerMiddleware)
+  applyMiddleware(thunk )
 );
 
 ReactDOM.render(
