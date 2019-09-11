@@ -111,6 +111,10 @@ class SearchBar extends Component{
     );
   };
 
+  componentDidMount () {
+    this.onSuggestionClickHanlder('hello');
+  };
+
   render(){
     const {suggestionsList, searchParam} = this.props.searchBar;
     return(

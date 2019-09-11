@@ -1,0 +1,65 @@
+@import "../variables";
+
+
+
+// Delete the below later
+.dummyWelcomePage{
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.FF_groups_page_container{
+  margin-top: 70px;
+}
+
+.FF_groupspage-component{
+  height: 100%;
+  width: 100%;
+}
+
+.FF_groupsPage-groupsCards-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.FF_groupcard{
+  overflow: hidden;
+  margin: 13px 20px;
+  padding: 5px 22px 5px 4px;
+  display: flex;
+  border-radius: 36px;
+  background: #fff;
+  box-shadow: $shadow_L1;
+  cursor: pointer;
+  user-select: none;
+  transition: $transition_mid;
+}
+
+.FF_groupcard:hover{
+  box-shadow: $shadow_L2;
+  transform: scale(1.05);
+}
+
+.FF_groupcard-icon{
+  border-radius: 100px;
+}
+
+.FF_groupcard-text-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 10px;
+}
+
+.FF_groupcard-name{
+  color: $color_text_black;
+}
+
+.FF_groupcard-pool-count{
+  transform: scale(1);
+  font-size: 11pt;
+  color: $color_text_gray;
+}

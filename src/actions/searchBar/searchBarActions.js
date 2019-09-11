@@ -14,11 +14,13 @@ const searchBarActions = {
     }
   },
   triggerSearch: () => (dispatch, getState) =>{
+    dispatch(groupsPageActions.startFetching());
     const searchParam = getState().searchBar.searchParam;
     console.log('searchParam is : ', searchParam);
     services.searchForGroups(searchParam)
       .then(response =>{
         if(response.stat === 'ok'){
+          dispatch(groupsPageActions.endFetching());
           dispatch(groupsPageActions.setGroups(response.groups))
         }
       });

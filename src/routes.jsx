@@ -47,7 +47,8 @@ class Routes extends Component{
            <SearchBar/>
            <div>Show Stats</div>
         </TopBar>
-        <Switch>
+
+        <Switch >
           <Route exact path='/' render={() => (    <Redirect to="/groups" />      )}/>
           <Route exact path='/groups' component={GroupsPage}/>
           <Route exact path='/*' render={() => (    <Redirect to="/groups" />      )}/>
