@@ -1,20 +1,29 @@
-import services from '../../services/flicker'
-import searchBarActionTypes from './searchBarActionTypes'
+import services from '../../services/flicker';
+import searchBarActionTypes from './searchBarActionTypes';
+
+import groupsPageActions from '../groupsPage/groupsPageActions';
 
 const searchBarActions = {
-  getSuggestions: payload => (dispatch) => {
-    if(payload.length > 0){
-      dispatch(searchBarActions.showSuggestions());
-      services.searchForSuggestions(payload)
+  getSuggestions: (signal) => (dispatch, getState) => {
+    const searchParam = getState().searchBar.searchParam;
+    if(searchParam){
+      services.searchForSuggestions(searchParam, signal)
         .then(response =>{
-          console.log('response', response);
-          dispatch(searchBarActions.setSuggestions(response.groups.group));
+          dispatch(searchBarActions.setSuggestions(response));
         });
     }
-    dispatch(searchBarActions.hideSuggestions);
   },
+  triggerSearch: () => (dispatch, getState) =>{
+    const searchParam = getState().searchBar.searchParam;
+    console.log('searchParam is : ', searchParam);
+    services.searchForGroups(searchParam)
+      .then(response =>{
+        if(response.stat === 'ok'){
+          dispatch(groupsPageActions.setGroups(response.groups))
+        }
+      });
+  },
+  setSearchParam: payload => ({type: searchBarActionTypes.SET_SEARCH_PARAM, payload}),
   setSuggestions: payload => ({type: searchBarActionTypes.SET_SUGGESTIONS, payload}),
-  showSuggestions: () => ({type: searchBarActionTypes.SHOW_SUGGESTIONS}),
-  hideSuggestions: () => ({type: searchBarActionTypes.HIDE_SUGGESTIONS})
 };
 export default searchBarActions;

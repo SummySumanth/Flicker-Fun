@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 import searchBarActions from '../../actions/searchBar/searchBarActions';
 import { searchIcon } from '../../assets/images/common/';
 import configs from '../../../configs';
+import suggestionStringGenerator from '../../scripts/suggestionStringGenerator';
 
 import '../../styles/components/searchBar.scss';
 
@@ -14,16 +15,21 @@ class SearchBar extends Component{
 
   static propTypes = {
     getSuggestions: PropTypes.func.isRequired,
+    setSearchParam: PropTypes.func.isRequired,
+    triggerSearch: PropTypes.func.isRequired,
   };
 
   constructor(props){
     super(props);
     this.state = {
       callNetworkFlag : true,
+      isFocused: false,
     }
   }
 
   onChangeHandler = (e) =>{
+    this.props.setSearchParam(e.target.value);
+
     // Check if its too soon to call again
     if(this.state.callNetworkFlag){
 
@@ -35,7 +41,7 @@ class SearchBar extends Component{
       // Instantiate new controller and pass the signal to fetch call
       controller = new AbortController();
       const signal = controller.signal;
-      this.props.getSuggestions(e.target.value, signal);
+      this.props.getSuggestions(signal);
 
       // Deny network call
       this.setState({
@@ -51,53 +57,83 @@ class SearchBar extends Component{
     }
   };
 
-  onEnterHandler = () =>{
-
+  onEnterHandler = (e) => {
+    if (e.key === 'Enter') {
+      this.props.triggerSearch();
+      this.setState({
+        isFocused: false,
+      });
+      this.refs.input.blur()
+    }
   };
 
-  getSuggestionitem = suggestion =>{
-    console.log('rendering item');
-    return (
-      <div>
-        Item 1
-      </div>
-    )
+  onFocusHandler = () =>{
+    this.setState({
+      isFocused: true,
+    });
   };
 
-  getSuggestionItems = suggestionsList =>{
-    let Items = suggestionsList.slice(0,10).map(item => this.getSuggestionitem(item))
-    return(
-      <div>
-        {
-          Items
-        }
-      </div>
-    )
+  onBlurHandler = () =>{
+    setTimeout(()=>{
+      this.setState({
+        isFocused: false,
+      });
+    }, 100);
   };
 
-  viewSuggestions = suggestionsList =>{
-    return (
-      <div className={'FF_searchbar-suggestions-wrapper'}>
-        <div className={'FF_searchbar-suggestions-container'}>
-          {( suggestionsList.length > 0) ? this.getSuggestionItems(suggestionsList) : <div> Loading suggestions ...</div>}
+  onSuggestionClickHanlder = searchParam =>{
+    this.props.setSearchParam(searchParam);
+    this.props.triggerSearch();
+  };
+
+  getSuggestionItems = (suggestionsList, searchParam) =>{
+    return suggestionsList.slice(0,10).map((item, index) => {
+      return(
+        <div key={index} className={'FF_searchbar-suggestion-item'} onClick={() => this.onSuggestionClickHanlder(item.word)}>
+          <p dangerouslySetInnerHTML={{__html : suggestionStringGenerator.getHighlightText(item.word, searchParam)}}></p>
         </div>
-      </div>
-    )
+      );
+    });
+  };
+
+  viewSuggestions = (suggestionsList, searchParam) =>{
+    if(suggestionsList){
+      return (
+        <div className={'FF_searchbar-suggestions-wrapper'}>
+          <div className={'FF_searchbar-suggestions-container'}>
+            {this.getSuggestionItems(suggestionsList, searchParam)}
+          </div>
+        </div>
+      );
+    }
+    return(
+      <div />
+    );
   };
 
   render(){
-    const { showSuggestions, suggestionsList} = this.props.searchBar;
+    const {suggestionsList, searchParam} = this.props.searchBar;
     return(
       <div className={'FF_searchbar-wrapper'}>
 
-        { showSuggestions ? this.viewSuggestions(suggestionsList) : <div/>}
+        { (searchParam && this.state.isFocused ) ? this.viewSuggestions(suggestionsList, searchParam) : <div/>}
 
         <div className={'FF_searchbar-container'}>
           <div className={'FF_searchbar-icon-container'}>
             <img className={'FF_searchbar-icon'} src={searchIcon} />
           </div>
 
-          <input className={'FF_searchbar-input'} type={'text'} onChange={this.onChangeHandler} placeholder={'Search Group !'}/>
+          <input
+            className={'FF_searchbar-input'}
+            type={'text'}
+            value={searchParam}
+            ref="input"
+            onChange={this.onChangeHandler}
+            onFocus={this.onFocusHandler}
+            onBlur={this.onBlurHandler}
+            onKeyDown={this.onEnterHandler}
+            placeholder={'Search Group !'}
+          />
         </div>
       </div>
     );
@@ -109,6 +145,8 @@ const mapStateToProps = state =>({
 });
 
 const mapDispatchToProps = dispatch =>({
-  getSuggestions : searchParam => dispatch(searchBarActions.getSuggestions(searchParam)),
+  getSuggestions : signal => dispatch(searchBarActions.getSuggestions(signal)),
+  setSearchParam : payload => dispatch(searchBarActions.setSearchParam(payload)),
+  triggerSearch : () => dispatch(searchBarActions.triggerSearch()),
 });
 export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);

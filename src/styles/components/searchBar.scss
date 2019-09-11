@@ -38,6 +38,7 @@
   height: 90%;
   background: #0000;
   border: none;
+  //color: $color_text_gray;
   width: 100%;
   font-size: 14pt;
 }
@@ -56,8 +57,33 @@
 }
 
 .FF_searchbar-suggestions-container{
-  background: $color_white;
-  height: 100%;
+  background: #fff;
+  max-height: 344px;
   width: 100%;
-  box-shadow: $shadow_L2;
+  overflow: scroll;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.FF_searchbar-suggestion-item{
+  background: $color_white;
+  padding: 12px 15px;
+  border-bottom: 1px solid #d2d2d2;
+  transition: $transition_mid;
+}
+
+.FF_searchbar-suggestion-item:hover{
+  background: #e5e5e5;
+  padding: 12px 30px;
+}
+
+.FF_searchbar-suggestion-item-text{
+
+}
+
+.FF_searchbar-suggestion-item-highlighter{
+  font-size: 17pt;
+  color: $color_text_gray;
+  background: #f3f3f3;
+  padding: 5px 0px;
+  font-weight: 600;
 }

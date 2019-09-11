@@ -18,7 +18,7 @@ function MyLoadingComponent() {
 }
 
 const GroupsPage = Loadable({
-  loader: () => import('./routes/landingPage/LandingPageContainer.jsx'),
+  loader: () => import('./routes/groupsPage/GroupsPageContainer.jsx'),
   loading: MyLoadingComponent,
 });
 
