@@ -17,3 +17,16 @@
   height: 100%;
   padding: 0px 20px;
 }
+
+.FF_showStats-btn{
+  cursor: pointer;
+  padding: 10px;
+  background: $color_white;
+  transition: $transition_mid;
+  color: $color_text_black;
+  border-radius: 100px;
+}
+
+.FF_showStats-btn:hover{
+  background: $color_white2;
+}

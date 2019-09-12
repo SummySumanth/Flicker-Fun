@@ -3,6 +3,8 @@ const groupsPageActionTypes = {
   SET_SELECTED_GROUP_ID : 'groupPageActions/SET_SELECTED_GROUP_ID',
   START_FETCHING : 'groupPageActions/START_FETCHING',
   END_FETCHING : 'groupPageActions/END_FETCHING',
+  SHOW_MODAL : 'groupPageActions/SHOW_MODAL',
+  HIDE_MODAL : 'groupPageActions/HIDE_MODAL',
 };
 
 export default groupsPageActionTypes;

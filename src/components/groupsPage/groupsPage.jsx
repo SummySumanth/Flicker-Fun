@@ -1,12 +1,16 @@
 import React,{ Component } from 'react';
-import { withRouter } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import urlConstructor from '../../scripts/urlConstructor';
+import Modal from '../common/modal.jsx';
 
 class GroupsPage extends Component{
 
-  static propTypes = {
+  constructor(props){
+    super(props);
 
+    this.state = {
+      modalOpen: false,
+    }
   }
 
   onClickHandler (direction) {
@@ -15,21 +19,22 @@ class GroupsPage extends Component{
 
   getGroupCards = groups =>{
     //"this.onerror=null;this.src='https://picsum.photos/id/6/200/300';"
-    return groups.map(item =>{
+    let cards = groups.map(item =>{
       return (
           <div key={item.nsid} className={'FF_groupcard'}>
             <img
               className={'FF_groupcard-icon'}
               src={urlConstructor.getBuddyIconUrl(item.nsid)}
-              onError={(e)=>{e.target.onerror = null; e.target.src="https://placeimg.com/48/48/any"}}
+              onError={(e)=>{e.target.onerror = null; e.target.src="https://fakeimg.pl/48x48/?text=:("}}
             />
             <div className={'FF_groupcard-text-container'}>
               <div className={'FF_groupcard-name'}>{item.name}</div>
-              <div className={'FF_groupcard-pool-count'}>{item.pool_count}</div>
+              <div className={'FF_groupcard-pool-count'}>{item.pool_count} Photos</div>
             </div>
           </div>
       )
     });
+    return cards;
   };
 
   render(){
@@ -44,4 +49,4 @@ class GroupsPage extends Component{
   }
 }
 
-export default withRouter(GroupsPage);
+export default GroupsPage;

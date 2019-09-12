@@ -1,15 +1,17 @@
 import React,{ Component } from 'react';
 import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useRouterHistory } from 'react-router';
+import { connect } from 'react-redux';
 import Loadable from 'react-loadable';
 
-import services from './services/flicker';
+import history from './routes/history';
+import WelcomeScreen from './routes/WelcomeScreen.jsx';
 
 import TopBar from './components/topBar/topBar.jsx';
 import SearchBar from './components/searchBar/searchBar.jsx';
 
-import history from './routes/history';
-import WelcomeScreen from './routes/WelcomeScreen.jsx';
+import groupPageActions from './actions/groupsPage/groupsPageActions';
+
 
 import './styles/index.scss';
 
@@ -38,6 +40,7 @@ class Routes extends Component{
   };
 
   render(){
+    const {groups, isfetching } = this.props.groupsPage;
     return(
       <Router history={history} >
         {/*{ this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }*/}
@@ -45,7 +48,19 @@ class Routes extends Component{
         <TopBar>
            <div></div>
            <SearchBar/>
-           <div>Show Stats</div>
+          {
+            ( Object.keys(groups).length > 0 && !isfetching)
+              ?
+              <div
+                className={'FF_showStats-btn'}
+                onClick={this.props.openModal}
+              >
+                Show Stats
+              </div>
+              :
+              <div />
+          }
+
         </TopBar>
 
         <Switch >
@@ -58,4 +73,12 @@ class Routes extends Component{
   }
 }
 
-export default Routes;
+const mapStateToProps = state =>({
+  groupsPage : state.groupsPage
+});
+
+const mapDispatchToProps = dispatch =>({
+  openModal : () => dispatch(groupPageActions.showModal())
+});
+
+export default connect(mapStateToProps,mapDispatchToProps)(Routes);

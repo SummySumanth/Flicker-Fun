@@ -8,7 +8,7 @@ const flickr = {
       .then(response =>{
         return response.json()
       }).catch(e =>{
-
+          console.log('catched error ', e.message);
       });
   },
   searchForGroups : (searchParam, signal) =>{     // API Doc -> https://www.flickr.com/services/api/explore/flickr.groups.search
