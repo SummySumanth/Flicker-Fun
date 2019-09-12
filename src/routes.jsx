@@ -24,6 +24,11 @@ const GroupsPage = Loadable({
   loading: MyLoadingComponent,
 });
 
+const GalleryPage = Loadable({
+  loader: () => import('./routes/galleryPage/GalleryPageContainer.jsx'),
+  loading: MyLoadingComponent,
+});
+
 class Routes extends Component{
 
   constructor(props){
@@ -66,7 +71,8 @@ class Routes extends Component{
         <Switch >
           <Route exact path='/' render={() => (    <Redirect to="/groups" />      )}/>
           <Route exact path='/groups' component={GroupsPage}/>
-          <Route exact path='/*' render={() => (    <Redirect to="/groups" />      )}/>
+          <Route exact path='/groups/gallery' component={GalleryPage}/>
+          <Route path='/*' render={() => (    <Redirect to="/groups" />      )}/>
         </Switch>
       </Router>
     )

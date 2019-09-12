@@ -13,15 +13,15 @@ class GroupsPage extends Component{
     }
   }
 
-  onClickHandler (direction) {
-    this.props.onNavChange(direction);
+  onClickHandler (groupId) {
+    this.props.onGroupClickHandler(groupId);
   }
 
   getGroupCards = groups =>{
     //"this.onerror=null;this.src='https://picsum.photos/id/6/200/300';"
     let cards = groups.map(item =>{
       return (
-          <div key={item.nsid} className={'FF_groupcard'}>
+          <div key={item.nsid} className={'FF_groupcard'} onClick={() => this.onClickHandler(item.nsid)}>
             <img
               className={'FF_groupcard-icon'}
               src={urlConstructor.getBuddyIconUrl(item.nsid)}

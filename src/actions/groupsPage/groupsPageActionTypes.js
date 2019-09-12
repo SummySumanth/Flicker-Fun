@@ -5,6 +5,7 @@ const groupsPageActionTypes = {
   END_FETCHING : 'groupPageActions/END_FETCHING',
   SHOW_MODAL : 'groupPageActions/SHOW_MODAL',
   HIDE_MODAL : 'groupPageActions/HIDE_MODAL',
+  RESET_GROUPS_PAGE : 'groupPageActions/RESET_GROUPS_PAGE',
 };
 
 export default groupsPageActionTypes;

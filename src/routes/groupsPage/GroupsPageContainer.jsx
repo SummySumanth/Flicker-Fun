@@ -9,15 +9,11 @@ import '../../styles/groupsPage/groupsPage.scss'
 import GroupsPage from '../../components/groupsPage/groupsPage.jsx';
 import Modal from '../../components/common/modal.jsx';
 class GroupsPageContainer extends Component{
-  
-  componentDidMount(){
 
-  }
-
-  onGroupClickHandler = () =>{
-
+  onGroupClickHandler = groupId =>{
+    this.props.setSelectedGroupID(groupId);
+    this.props.history.push(`${this.props.location.pathname}/gallery`);
   };
-
 
   getRandomColorHex() {
     var hex = "0123456789ABCDEF",
@@ -51,7 +47,6 @@ class GroupsPageContainer extends Component{
   };
 
   render(){
-    console.log('Props at groups page', this.props);
     const { groups, selectedGroupId, isFetching, showModal} = this.props.groupsPage;
     const { group, page, pages, perpage, total} = groups;
     return(
@@ -100,7 +95,8 @@ const mapStateToProps = state =>({
 });
 
 const mapDispatchToProps = dispatch => ({
-  closeModal : () => dispatch(groupsPageActions.hideModal())
+  closeModal : () => dispatch(groupsPageActions.hideModal()),
+  setSelectedGroupID : groupId => dispatch(groupsPageActions.setSelectedGroupID(groupId)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(GroupsPageContainer);

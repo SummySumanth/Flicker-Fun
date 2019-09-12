@@ -9,7 +9,8 @@ An simple version of the Flickr website using the Flickr API.
 ## Configurations 
 Following are the configurations that can be made to this project, all the configurations exist in route directory configs.js (./configs.js) 
 1.  flickerApiKey - Define your own flicker api key here _**[params - api key in string]**_ 
-2.  searchNetworkCallDelay - Define the delay to be present before making network call for search auto-complete suggestions _**[params - Milliseconds key in number]**_ 
+2.  searchNetworkCallDelay - Define the delay to be present before making network call for search auto-complete suggestions _**[params - Milliseconds key in number]**_
+3.  perPage - Defines number of photos to be fetched in each network call in gallery page 
 
 ## NPM Scripts
 

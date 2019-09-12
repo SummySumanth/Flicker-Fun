@@ -15,6 +15,7 @@ const groupsPageReducer = (state = intialState, action) => {
     case groupsPageActionTypes.END_FETCHING : return {...state, isFetching: false};
     case groupsPageActionTypes.SHOW_MODAL : return {...state, showModal: true};
     case groupsPageActionTypes.HIDE_MODAL : return {...state, showModal: false};
+    case groupsPageActionTypes.RESET_GROUPS_PAGE : return {...intialState};
     default: return state;
   }
 };
