@@ -1,6 +1,7 @@
 import React,{ Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 
 import searchBarActions from '../../actions/searchBar/searchBarActions';
 import { searchIcon } from '../../assets/images/common/';
@@ -63,7 +64,8 @@ class SearchBar extends Component{
       this.setState({
         isFocused: false,
       });
-      this.refs.input.blur()
+      this.props.history.push(`groups`);
+      this.refs.input.blur();
     }
   };
 
@@ -82,8 +84,10 @@ class SearchBar extends Component{
   };
 
   onSuggestionClickHanlder = searchParam =>{
+    console.log('search param received is ', searchParam);
     this.props.setSearchParam(searchParam);
     this.props.triggerSearch();
+    this.props.history.push(`groups`);
   };
 
   getSuggestionItems = (suggestionsList, searchParam) =>{
@@ -153,4 +157,4 @@ const mapDispatchToProps = dispatch =>({
   setSearchParam : payload => dispatch(searchBarActions.setSearchParam(payload)),
   triggerSearch : () => dispatch(searchBarActions.triggerSearch()),
 });
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(SearchBar));
