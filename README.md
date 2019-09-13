@@ -37,3 +37,24 @@ _or_
 
 
 ## UI(s) of this project
+
+### Groups intial page
+![alt text](https://raw.githubusercontent.com/SummySumanth/Flicker-Fun/master/readmeImages/initial.png)
+
+### Search Suggestions
+![alt text](https://raw.githubusercontent.com/SummySumanth/Flicker-Fun/master/readmeImages/searchSuggestions.png)
+
+### Search Result
+![alt text](https://raw.githubusercontent.com/SummySumanth/Flicker-Fun/master/readmeImages/searchResult.png)
+
+### Stats
+![alt text](https://raw.githubusercontent.com/SummySumanth/Flicker-Fun/master/readmeImages/stats.png)
+
+### Gallery
+![alt text](https://raw.githubusercontent.com/SummySumanth/Flicker-Fun/master/readmeImages/gallery.png)
+
+![alt text](https://raw.githubusercontent.com/SummySumanth/Flicker-Fun/master/readmeImages/gallery2.png)
+
+### Photo Preview
+![alt text](https://raw.githubusercontent.com/SummySumanth/Flicker-Fun/master/readmeImages/photoPreviewModal.png)
+
