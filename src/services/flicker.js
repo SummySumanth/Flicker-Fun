@@ -4,7 +4,10 @@ import urlContructor from '../scripts/urlConstructor';
 const flickr = {
   searchForSuggestions : (searchParam, signal) =>{     // API Doc -> https://www.flickr.com/services/api/explore/flickr.groups.search
     const url = urlContructor.getSearchForSuggestions(searchParam, configs.maxSuggestion);
-    return fetch(url, {signal: signal})
+    return fetch(url, {
+      signal: signal,
+      mode: 'cors',
+    })
       .then(response =>{
         return response.json()
       }).catch(e =>{
