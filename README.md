@@ -31,7 +31,10 @@ _or_
 ## Few Pointers about this project 
 1. **Lazy loading of Images** have been implemented.
 2. **Code splitting** for better optimization of static files(script files) delivery and make initial load quicker.
-3. **Throttling of network activities** to reduce unhandled number of calls on search query. 
+3. **Throttling of network activities** to reduce unhandled number of calls on search query.
+4. **Code splitting** in order to make the static script files light weight and load only on need!
+5. Search suggestion **network calls are throttled!**
+6. **No css frameworks used**, all the styles and animations are handwritten ! 
 
 
 ## UI(s) of this project
