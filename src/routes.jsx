@@ -50,7 +50,7 @@ class Routes extends Component{
 
     return(
       <Router history={history} >
-        {/*{ this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }*/}
+        { this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }
 
         <TopBar>
            <div></div>
