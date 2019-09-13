@@ -84,7 +84,6 @@ class SearchBar extends Component{
   };
 
   onSuggestionClickHanlder = searchParam =>{
-    console.log('search param received is ', searchParam);
     this.props.setSearchParam(searchParam);
     this.props.triggerSearch();
     this.props.history.push(`groups`);

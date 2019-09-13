@@ -7,6 +7,8 @@ const galleryPageActionTypes = {
   START_FETCHING : 'galleryPageActions/START_FETCHING',
   END_FETCHING : 'galleryPageActions/END_FETCHING',
   SET_TOTAL_PAGE_COUNT :  'galleryPageActions/SET_TOTAL_PAGE_COUNT',
+  SET_CALL_IN_PLACE : 'galleryPageActions/SET_CALL_IN_PLACE',
+  REMOVE_CALL_IN_PLACE : 'galleryPageActions/REMOVE_CALL_IN_PLACE',
 };
 
 export default galleryPageActionTypes;

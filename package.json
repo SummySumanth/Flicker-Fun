@@ -26,6 +26,7 @@
     "express": "^4.17.1",
     "history": "^4.9.0",
     "immutable": "^4.0.0-rc.12",
+    "jquery": "^3.4.1",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
     "react": "^16.9.0",
@@ -39,7 +40,8 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
     "sass-loader": "^7.3.1",
-    "webpack-merge": "^4.2.2"
+    "webpack-merge": "^4.2.2",
+    "yall-js": "^3.1.5"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",

@@ -4,6 +4,8 @@ import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { createLogger } from 'redux-logger';
+import $ from "jquery";
+import yall from 'yall-js';
 
 import allReducers from './reducers/index';
 import Routes from './routes.jsx';

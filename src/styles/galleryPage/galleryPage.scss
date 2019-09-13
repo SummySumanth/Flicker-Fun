@@ -1,3 +1,67 @@
+@import "../variables";
+
 .FF_gallery_page_container{
-  margin-top: 70px;
+  margin: 70px;
+}
+
+.FF_groupspage-component{
+  display: flex;
+  flex-flow: row wrap;
+  margin-left: -8px; /* Adjustment for the gutter */
+  width: 100%;
+}
+
+.FF_gallery_image_container{
+
+  flex: auto;
+  height: 200px;
+  min-width: 150px;
+  margin: 0 15px 15px 0; /* Some gutter */
+
+
+
+  background: #fff;
+  //padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: $shadow_L1;
+  transition: $transition_fast;
+}
+
+.FF_gallery_image_container:hover{
+  box-shadow: $shadow_Lifted;
+  transform: scale(1.02)
+}
+
+.FF_gallery_image_container:nth-child(4n+1) {
+  width: 250px;
+}
+.FF_gallery_image_container:nth-child(4n+1):nth-child(4n+2) {
+  width: 325px;
+}
+.FF_gallery_image_container:nth-child(4n+1):nth-child(4n+3) {
+  width: 180px;
+}
+.FF_gallery_image_container:nth-child(4n+1):nth-child(4n+4) {
+  width: 380px;
+}
+
+.lazy{
+  filter: blur(4px)brightness(0.4)
+}
+
+
+.FF_gallery_image{
+  max-height: 250px;
+  padding-bottom: 13px;
+  border-radius: 5px;
+}
+
+.FF_gallery_title{
+  padding-bottom: 3px;
+}
+
+.FF_gallery_ownername{
+  font-size: 11pt;
+  color: $color_text_gray;
 }

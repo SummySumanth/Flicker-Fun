@@ -4,6 +4,42 @@
     <meta charset="UTF-8">
     <base href = "<%= htmlWebpackPlugin.options.baseUrl %>" />
     <title>Flicker Fun</title>
+
+
+
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.min.js"
+            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+            crossorigin="anonymous"></script>
+
+    <script defer>
+      console.log('adding event listenr');
+      document.addEventListener("DOMContentLoaded", function() {
+
+        let lazyloadThrottleTimeout;
+
+        function lazyload () {
+          let lazyloadImages = $("img.lazy");
+          if(lazyloadThrottleTimeout) {
+            clearTimeout(lazyloadThrottleTimeout);
+          }
+
+          lazyloadThrottleTimeout = setTimeout(function() {
+            let scrollTop = window.pageYOffset;
+
+            lazyloadImages.each(function(i, img) {
+              if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+              }
+            });
+          }, 20);
+        }
+
+        $(window).scroll(lazyload);
+        $(window).resize(lazyload);
+      });
+    </script>
   </head>
   <body>
         <div id="root"></div>

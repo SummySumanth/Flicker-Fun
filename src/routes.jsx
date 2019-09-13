@@ -3,6 +3,7 @@ import { Router, Switch, Route, Redirect } from 'react-router-dom';
 import { useRouterHistory } from 'react-router';
 import { connect } from 'react-redux';
 import Loadable from 'react-loadable';
+import yall from 'yall-js';
 
 import history from './routes/history';
 import WelcomeScreen from './routes/WelcomeScreen.jsx';
