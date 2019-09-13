@@ -18,7 +18,6 @@ class GroupsPage extends Component{
   }
 
   getGroupCards = groups =>{
-    //"this.onerror=null;this.src='https://picsum.photos/id/6/200/300';"
     let cards = groups.map(item =>{
       return (
           <div key={item.nsid} className={'FF_groupcard'} onClick={() => this.onClickHandler(item.nsid)}>
@@ -38,7 +37,7 @@ class GroupsPage extends Component{
   };
 
   render(){
-    const {group, page, pages, perPage, total} = this.props;
+    const {group} = this.props;
     return(
       <div className={'FF_groupspage-component'}>
         <div className={'FF_groupsPage-groupsCards-container'}>
