@@ -1,6 +1,6 @@
 export default {
   getHighlightText : (longString , shortString) =>{
-    const startOfSubstring = longString.indexOf(shortString);
+    const startOfSubstring = longString.indexOf(shortString.toLowerCase());
     if(startOfSubstring === -1){
        return longString
     }

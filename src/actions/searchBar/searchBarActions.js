@@ -16,7 +16,7 @@ const searchBarActions = {
   triggerSearch: () => (dispatch, getState) =>{
     dispatch(groupsPageActions.startFetching());
     const searchParam = getState().searchBar.searchParam;
-    services.searchForGroups(searchParam)
+    services.searchForGroups(searchParam.toLowerCase())
       .then(response =>{
         if(response.stat === 'ok'){
           dispatch(groupsPageActions.endFetching());
