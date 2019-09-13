@@ -67,8 +67,20 @@
 }
 
 .FF_modalImage{
-  max-width: 60%;
-  max-height: 50%;
+  max-width: 90%;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.FF_modalPhoto_title{
+  font-size: 35pt;
+  color: $color_text_black;
+}
+
+.FF_modalPhoto_owner{
+  margin: 0px 20px 20px 20px;
+  font-size: 16pt;
+  color: $color_text_gray;
 }
 
 .FF_modalImageContainer{

@@ -88,7 +88,7 @@ class GalleryPageContainer extends Component{
             <div className={'FF_modalImageContainer'}>
               <img className={'FF_modalImage'} src={this.state.modalPhoto.photoSrc}/>
               <div className={'FF_modalPhoto_title'}>{this.state.modalPhoto.title}</div>
-              <div className={'FF_modalPhoto_owner'}>{this.state.modalPhoto.owner}</div>
+              <div className={'FF_modalPhoto_owner'}>By {this.state.modalPhoto.owner}</div>
             </div>
           </Modal>
 
