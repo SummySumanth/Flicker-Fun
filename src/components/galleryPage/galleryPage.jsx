@@ -4,13 +4,22 @@ import urlConstructor from '../../scripts/urlConstructor';
 
 import $ from "jquery";
 
-let lazyloadImages = $("img");
-let lazyloadThrottleTimeout;
-
 
 class GalleryPage extends Component{
 
-  getPhotos = (photos) =>{
+  getPhotos = (photos , currentPage) =>{
+
+    if(currentPage === 1){
+      return photos.map( item => {
+        let photoUrl = urlConstructor.getPhotoUrl(item.farm, item.server, item.id, item.secret, 'b');
+
+        return(
+          <img key={item.id} className={'FF_gallery_image_container'} src={photoUrl} title={`title : ${item.title} ____ by : ${item.ownername}`} />
+        );
+      });
+    }
+
+
     return photos.map( item => {
       let photoUrl = urlConstructor.getPhotoUrl(item.farm, item.server, item.id, item.secret, 'b');
       let smallUrl = urlConstructor.getPhotoUrl(item.farm, item.server, item.id, item.secret, 's');
@@ -32,10 +41,10 @@ class GalleryPage extends Component{
       }
     });
 
-    const {photos} = this.props;
+    const {currentPage, photos} = this.props;
     return(
       <div className={'FF_groupspage-component'}>
-        { this.getPhotos(photos)  }
+        { this.getPhotos(photos, currentPage)  }
       </div>
     );
   }

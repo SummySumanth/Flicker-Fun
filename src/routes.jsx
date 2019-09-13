@@ -47,6 +47,7 @@ class Routes extends Component{
 
   render(){
     const {groups, isfetching } = this.props.groupsPage;
+
     return(
       <Router history={history} >
         {/*{ this.state.showModal ? <WelcomeScreen onModalClose={this.onModalClose} /> : <div></div> }*/}
@@ -55,7 +56,7 @@ class Routes extends Component{
            <div></div>
            <SearchBar/>
           {
-            ( Object.keys(groups).length > 0 && !isfetching)
+            ( Object.keys(groups).length > 0 && !isfetching && window.location.pathname !== "/groups/gallery" )
               ?
               <div
                 className={'FF_showStats-btn'}
