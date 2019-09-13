@@ -4,7 +4,7 @@ An simple version of the Flickr website using the Flickr API.
 
 ## View project directly:
 
-[click here](https://google.com) - (Ctrl + Click || Cmd + Click) _**Refreshing page would not work here**_ as they are just static files (without served from a server) and because of frontend routing, it wont be able to resolve files and you would get a 404 on refreshing and that is expected.
+[click here](http://flickrfun.surge.sh) - (Ctrl + Click || Cmd + Click) _**Refreshing page would not work here**_ as they are just static files (without served from a server) and because of frontend routing, it wont be able to resolve files and you would get a 404 on refreshing and that is expected.
 
 ## Configurations 
 Following are the configurations that can be made to this project, all the configurations exist in route directory configs.js (./configs.js) 
