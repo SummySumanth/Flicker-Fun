@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 import galleryPageActions from '../../actions/galleryPageActions/galleryPageActions';
 import GalleryPage from '../../components/galleryPage/galleryPage.jsx';
 import '../../styles/galleryPage/galleryPage.scss';
+
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
+
 import $ from 'jquery'
 
 class GalleryPageContainer extends Component{
@@ -30,6 +36,17 @@ class GalleryPageContainer extends Component{
     const { selectedGroupId } = this.props.groupsPage;
     if(currentPage < totalPageCount && !isCallInPlace) {
       this.props.fetchMorePhotos(selectedGroupId, currentPage);
+
+
+      toast.info(`🚀 Fetching Page #${currentPage + 1}`, {
+        position: "bottom-center",
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
     }
   };
 
@@ -37,7 +54,17 @@ class GalleryPageContainer extends Component{
     const { photos, currentPage, isFetching, totalPageCount} = this.props.galleryPage;
     return(
       <div className={'FF_gallery_page_container'}>
-
+        <ToastContainer
+          position="bottom-center"
+          autoClose={2000}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnVisibilityChange
+          draggable
+          pauseOnHover
+        />
         {
           (isFetching)
             ?
