@@ -4,6 +4,10 @@ import { connect } from 'react-redux';
 
 import galleryPageActions from '../../actions/galleryPageActions/galleryPageActions';
 import GalleryPage from '../../components/galleryPage/galleryPage.jsx';
+
+import Modal from '../../components/common/modal.jsx';
+
+
 import '../../styles/galleryPage/galleryPage.scss';
 
 
@@ -20,6 +24,8 @@ class GalleryPageContainer extends Component{
 
     this.state ={
       callNetworkFlag : true,
+      showModal : false,
+      modalPhoto : {}
     }
   }
 
@@ -39,7 +45,7 @@ class GalleryPageContainer extends Component{
 
 
       toast.info(`🚀 Fetching Page #${currentPage + 1}`, {
-        position: "bottom-center",
+        position: "bottom-right",
         autoClose: 5000,
         hideProgressBar: false,
         closeOnClick: true,
@@ -50,10 +56,44 @@ class GalleryPageContainer extends Component{
     }
   };
 
+  openModal = photoDetails =>{
+    this.setState({
+      showModal : true,
+      modalPhoto : photoDetails
+    });
+  };
+
+  photoClickHandler = photoDetails =>{
+    console.log('photo clicked');
+    this.openModal(photoDetails);
+  };
+
+  closeModal = () =>{
+    this.setState({
+      showModal : false,
+      modalPhoto : {}
+    });
+  };
+
   render(){
     const { photos, currentPage, isFetching, totalPageCount} = this.props.galleryPage;
     return(
       <div className={'FF_gallery_page_container'}>
+
+
+          <Modal
+            showModal={this.state.showModal}
+            onCloseHandler={this.closeModal}
+          >
+            <div className={'FF_modalImageContainer'}>
+              <img className={'FF_modalImage'} src={this.state.modalPhoto.photoSrc}/>
+              <div className={'FF_modalPhoto_title'}>{this.state.modalPhoto.title}</div>
+              <div className={'FF_modalPhoto_owner'}>{this.state.modalPhoto.owner}</div>
+            </div>
+          </Modal>
+
+
+
         <ToastContainer
           position="bottom-center"
           autoClose={2000}
@@ -75,6 +115,7 @@ class GalleryPageContainer extends Component{
               currentPage={currentPage}
               totalPageCount={totalPageCount}
               fetchNextPage={this.fetchMoreHandler}
+              photoClickHandler={this.photoClickHandler}
             />
         }
 

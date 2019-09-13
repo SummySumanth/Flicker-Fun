@@ -14,7 +14,19 @@ class GalleryPage extends Component{
         let photoUrl = urlConstructor.getPhotoUrl(item.farm, item.server, item.id, item.secret, 'b');
 
         return(
-          <img key={item.id} className={'FF_gallery_image_container'} src={photoUrl} title={`title : ${item.title} ____ by : ${item.ownername}`} />
+          <img
+            key={item.id}
+            className={'FF_gallery_image_container'}
+            src={photoUrl}
+            title={`title : ${item.title} ____ by : ${item.ownername}`}
+            onClick={() =>{
+              this.props.photoClickHandler({
+                photoSrc : photoUrl,
+                title : item.title,
+                owner : item.ownername
+              });
+            }}
+          />
         );
       });
     }
@@ -25,7 +37,20 @@ class GalleryPage extends Component{
       let smallUrl = urlConstructor.getPhotoUrl(item.farm, item.server, item.id, item.secret, 's');
 
       return(
-          <img key={item.id} className={'FF_gallery_image_container lazy'} src={smallUrl} data-src={photoUrl} title={`title : ${item.title} ____ by : ${item.ownername}`} />
+          <img
+            key={item.id}
+            className={'FF_gallery_image_container lazy'}
+            src={smallUrl}
+            data-src={photoUrl}
+            title={`title : ${item.title} ____ by : ${item.ownername}`}
+            onClick={() =>{
+              this.props.photoClickHandler({
+                photoSrc : photoUrl,
+                title : item.title,
+                owner : item.ownername
+              });
+            }}
+          />
       );
     });
   };
