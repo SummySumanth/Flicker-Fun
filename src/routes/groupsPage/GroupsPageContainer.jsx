@@ -4,9 +4,11 @@ import { connect } from 'react-redux';
 import { Pie } from 'react-chartjs-2';
 
 import groupsPageActions from '../../actions/groupsPage/groupsPageActions';
+
 import '../../styles/groupsPage/groupsPage.scss'
 
 import GroupsPage from '../../components/groupsPage/groupsPage.jsx';
+
 import Modal from '../../components/common/modal.jsx';
 class GroupsPageContainer extends Component{
 
@@ -47,7 +49,7 @@ class GroupsPageContainer extends Component{
   };
 
   render(){
-    const { groups, selectedGroupId, isFetching, showModal} = this.props.groupsPage;
+    const { groups, isFetching, showModal} = this.props.groupsPage;
     const { group, page, pages, perpage, total} = groups;
     return(
       <div className={'FF_groups_page_container'}>
@@ -96,6 +98,7 @@ const mapStateToProps = state =>({
 
 const mapDispatchToProps = dispatch => ({
   closeModal : () => dispatch(groupsPageActions.hideModal()),
+  resetGroupsPage : () => dispatch(groupsPageActions.resetGroupsPage()),
   setSelectedGroupID : groupId => dispatch(groupsPageActions.setSelectedGroupID(groupId)),
 });
 

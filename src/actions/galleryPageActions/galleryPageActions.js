@@ -29,7 +29,8 @@ const galleryPageActions = {
   startFetching: () =>({type: galleryPageActionTypes.START_FETCHING}),
   endFetching: () =>({type: galleryPageActionTypes.END_FETCHING}),
   setCallInPlace: () =>({type: galleryPageActionTypes.SET_CALL_IN_PLACE}),
-  removeCallInPlace: () => ({type: galleryPageActionTypes.REMOVE_CALL_IN_PLACE})
+  removeCallInPlace: () => ({type: galleryPageActionTypes.REMOVE_CALL_IN_PLACE}),
+  resetGalleryPage: () => ({type: galleryPageActionTypes.RESET_GALLERYPAGE})
 };
 
 export default galleryPageActions;

@@ -30,6 +30,7 @@ class GalleryPageContainer extends Component{
   }
 
   componentDidMount(){
+    this.props.reset();
     if(this.props.groupsPage.selectedGroupId === ""){
       this.props.history.push(`groups`);
     }
@@ -42,17 +43,6 @@ class GalleryPageContainer extends Component{
     const { selectedGroupId } = this.props.groupsPage;
     if(currentPage < totalPageCount && !isCallInPlace) {
       this.props.fetchMorePhotos(selectedGroupId, currentPage);
-
-
-      toast.info(`🚀 Fetching Page #${currentPage + 1}`, {
-        position: "bottom-right",
-        autoClose: 5000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-
     }
   };
 
@@ -130,6 +120,7 @@ const mapStateToProps = state =>({
 });
 
 const mapDispatchToProps = dispatch => ({
+  reset : () => dispatch(galleryPageActions.resetGalleryPage()),
   fetchPhotos : groupId => dispatch(galleryPageActions.fetchPhotos(groupId)),
   fetchMorePhotos : (groupId, currentPage) => dispatch(galleryPageActions.fetchNextPagePhotos(groupId, currentPage)),
 });

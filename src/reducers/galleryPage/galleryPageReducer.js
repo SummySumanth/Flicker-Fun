@@ -1,6 +1,6 @@
 import galleryPageActionTypes from '../../actions/galleryPageActions/galleryPageActionTypes';
 
-const intialState = {
+const initialState = {
   photos : [],
   currentPage : 1,
   totalPageCount : 0,
@@ -8,7 +8,7 @@ const intialState = {
   isCallInPlace : false,
 };
 
-const galleryPageReducer = (state = intialState, action) => {
+const galleryPageReducer = (state = initialState, action) => {
   switch(action.type){
     case galleryPageActionTypes.SET_PHOTOS : return { ...state, photos : action.payload};
     case galleryPageActionTypes.ADD_PHOTOS : return { ...state, photos : [ ...state.photos, ...action.payload] };
@@ -18,6 +18,7 @@ const galleryPageReducer = (state = intialState, action) => {
     case galleryPageActionTypes.END_FETCHING: return { ...state, isFetching: false};
     case galleryPageActionTypes.SET_CALL_IN_PLACE : return { ...state, isCallInPlace: true};
     case galleryPageActionTypes.REMOVE_CALL_IN_PLACE : return { ...state, isCallInPlace: false};
+    case galleryPageActionTypes.RESET_GALLERYPAGE : return { ...initialState};
     default: return state;
   }
 };

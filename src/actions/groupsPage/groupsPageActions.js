@@ -7,6 +7,7 @@ const groupPageActions = {
   setSelectedGroupID : payload => ({type: groupsPageActionTypes.SET_SELECTED_GROUP_ID, payload}),
   showModal : () => ({type: groupsPageActionTypes.SHOW_MODAL}),
   hideModal : () => ({type: groupsPageActionTypes.HIDE_MODAL}),
+  resetGroupsPage : () => ({type: groupsPageActionTypes.RESET_GROUPS_PAGE})
 };
 
 export default groupPageActions;
